@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+}
+
+.navbar {
+  width: 80%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding: 1.2%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.nav-button {
+  text-decoration: none;
+  float: right;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  height: 2em;
+  border-radius: 3px;
+  text-shadow: none;
+  border-width: 0.5px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.login {
+  background-color: #f03847;
+  border: 1px solid #f03847;
+  color: #fff;
+  position: relative;
+}
+
+.signup:active {
+  color: #f03847ce;
+}
+
+.login:active {
+  background-color: #f03847ce;
+  border: 1px solid #f03847ce;
+}

@@ -2,25 +2,32 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import HomeView from './home/HomeView.jsx';
+import TempNavbar from './temp-navbar/TempNavbar.jsx';
+import ImagePreview from './image-card/ImagePreview.jsx';
+import CommentWriter from './image-card/CommentWriter.jsx';
+import LoginView from './navbar/LoginView.jsx';
+import SignupView from './navbar/SignupView.jsx';
+
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <TempNavbar />
+          <Route exact path="/" component={HomeView} />
+          <Route exact path="/image-preview" component={ImagePreview} />
+          <Route exact path="/comment-writer" component={CommentWriter} />
+          <Route exact path="/login" component={LoginView} />
+          <Route exact path="/signup" component={SignupView} />
+          {/* <Route exact path="/image-submit" component={ImageSubmitView} />
+          <Route exact path="/comment-writer" component={CommentWriter} />
+          <Route exact path="/image-card" component={ImageCard} />
+           */}
+        </div>
+      </Router>
     );
   }
 }
