@@ -10,13 +10,8 @@ export default class HomeNavbar extends React.Component {
           <h1 className="title">ImgCom</h1>
           <ul className="navbar">
             <li>
-              <Link to="/login">
-                <button className="nav-button login">login</button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/signup">
-                <button className="nav-button signup">signup</button>
+              <Link to="/">
+                <button className="nav-button logout">logout</button>
               </Link>
             </li>
           </ul>

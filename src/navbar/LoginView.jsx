@@ -36,11 +36,9 @@ export default class LoginView extends React.Component {
               </button>
             </div>
           </fieldset>
-
-          <p>Don't have an account? Sign up (add link)</p>
-          {/* <p>
-            Don't have an account? <Link>Sign up</Link>
-          </p> */}
+          <p className="link-to-signup">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </p>
         </form>
       </section>
     );

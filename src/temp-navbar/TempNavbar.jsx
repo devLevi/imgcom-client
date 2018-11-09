@@ -19,6 +19,9 @@ export default class TempNavbar extends React.Component {
               <Link to="/comment-writer">Comment Writer View</Link>
             </li>
             <li>
+              <Link to="/comment">Comment View</Link>
+            </li>
+            <li>
               <Link to="/login">Login View</Link>
             </li>
             <li>

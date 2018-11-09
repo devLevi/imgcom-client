@@ -1,0 +1,29 @@
+.single-comment {
+  display: inline-block;
+  width: 100%;
+  margin-left: 0px;
+}
+
+.comment-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 500px;
+  left: 50%;
+  overflow: hidden;
+  margin-left: -250px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.username {
+  font-weight: bolder;
+  display: inline;
+  margin-right: 10px;
+  color: #f03847;
+}
+
+.comment {
+  position: relative;
+  display: inline;
+  text-align: center;
+}

@@ -63,6 +63,7 @@ button:focus {
   position: relative;
 }
 
+.logout:active,
 .signup:active {
   color: #f03847ce;
 }

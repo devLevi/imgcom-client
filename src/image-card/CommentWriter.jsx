@@ -1,7 +1,7 @@
 import React from 'react';
 import './comment-writer.css';
 
-export default class Comment extends React.Component {
+export default class CommentWriter extends React.Component {
   render() {
     return (
       <div className="comment-writer">

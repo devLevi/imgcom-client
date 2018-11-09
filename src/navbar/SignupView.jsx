@@ -47,10 +47,9 @@ export default class SignupView extends React.Component {
               </button>
             </div>
           </fieldset>
-          <p>Already have an account? Login (add link)</p>
-          {/* <p>
-            Already have an account? <Link>Log in</Link>
-          </p> */}
+          <p className="link-to-login">
+            Already have an account? <Link to="/login">Log in</Link>
+          </p>
         </form>
       </section>
     );

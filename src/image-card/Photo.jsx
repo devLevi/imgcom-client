@@ -4,7 +4,9 @@ export default class Photo extends React.Component {
   render() {
     return (
       <div className="single-photo">
-        <img src="https://picsum.photos/500/375" alt="img" />
+        <div className="img-wrapper">
+          <img src="https://picsum.photos/500/375" alt="title" />
+        </div>
       </div>
     );
   }

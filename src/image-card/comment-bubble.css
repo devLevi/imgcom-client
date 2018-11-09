@@ -1,0 +1,25 @@
+.comment-bubble {
+  display: inline-block;
+  width: 100%;
+  margin-left: 0px;
+}
+
+.bubble-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  width: 500px;
+  left: 50%;
+  overflow: hidden;
+  margin-left: -250px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fa-comment {
+  font-weight: bolder;
+  display: inline;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #f03847;
+}
