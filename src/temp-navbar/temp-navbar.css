@@ -1,3 +1,15 @@
-nav {
+.temp-nav {
+  position: fixed;
+  margin-top: 100px;
+  margin-left: 10px;
+  z-index: 0;
+}
+
+.temp-list {
+  list-style: none;
+}
+
+.extra-space {
+  height: 100px;
   position: relative;
 }

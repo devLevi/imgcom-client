@@ -1,11 +1,16 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
-
+import HomeNavbar from '../navbar/HomeNavbar.jsx';
+import Photo from '../image-card/Photo.jsx';
 export default class HomeView extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <HomeNavbar />
+        <Photo />
+        <Photo />
+        <Photo />
+        <Photo />
+        <Photo />
       </div>
     );
   }

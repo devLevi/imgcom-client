@@ -3,9 +3,27 @@
   font-family: 'Roboto', sans-serif;
 }
 
-nav {
-  width: 100%;
+nav > .title {
+  display: block;
+  position: absolute;
+  width: 200px;
+  font-family: 'Monoton', cursive;
+  font-size: 25px;
+  left: 50%;
+  margin-top: 20px;
+  margin-left: -100px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navigation {
   position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  height: 60px;
+  z-index: 10;
+  border-bottom: 0.5px solid gainsboro;
 }
 
 .navbar {

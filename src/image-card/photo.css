@@ -1,0 +1,10 @@
+.single-photo {
+  position: relative;
+  width: 300px;
+  left: 50%;
+  margin-left: -250px;
+}
+
+img {
+  border-radius: 3px;
+}

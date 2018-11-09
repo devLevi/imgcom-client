@@ -1,9 +1,11 @@
 .comment-form > input {
-  margin: 3px;
-  width: 250px;
   height: 3em;
   border-radius: 3px;
   text-shadow: none;
   border-width: 0.5px;
   outline: none;
+  position: relative;
+  width: 500px;
+  left: 50%;
+  margin-left: -250px;
 }
