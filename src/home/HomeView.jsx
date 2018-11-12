@@ -1,11 +1,16 @@
 import React from 'react';
-import HomeNavbar from '../navbar/HomeNavbar.jsx';
+import { connect } from 'react-redux';
+import Navbar from '../navbar/Navbar.jsx';
 import Photo from '../image-card/Photo.jsx';
-export default class HomeView extends React.Component {
+import { ADD_COMMENT } from '../redux/actions.js';
+class HomeView extends React.Component {
+  testMethod() {
+    this.props.dispatch({ type: ADD_COMMENT });
+  }
   render() {
     return (
       <div>
-        <HomeNavbar />
+        <Navbar />
         <Photo />
         <Photo />
         <Photo />
@@ -15,3 +20,9 @@ export default class HomeView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  images: state.images
+});
+
+export default connect(mapStateToProps)(HomeView);

@@ -1,34 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import HomeView from './home/HomeView.jsx';
-import TempNavbar from './temp-navbar/TempNavbar.jsx';
+import Navbar from './navbar/Navbar.jsx';
 import ImagePreview from './image-card/ImagePreview.jsx';
-import CommentWriter from './image-card/CommentWriter.jsx';
-import Comment from './image-card/Comment.jsx';
-import LoginView from './navbar/LoginView.jsx';
-import SignupView from './navbar/SignupView.jsx';
-
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import AddImageView from './add-image/AddImageView.jsx';
+import LoginView from './auth/LoginView.jsx';
+import SignupView from './auth/SignupView.jsx';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <TempNavbar />
+        <React.Fragment>
+          <Navbar />
           <Route exact path="/" component={HomeView} />
-          <Route exact path="/image-preview" component={ImagePreview} />
-          <Route exact path="/comment-writer" component={CommentWriter} />
-          <Route exact path="/comment" component={Comment} />
-          <Route exact path="/login" component={LoginView} />
-          <Route exact path="/signup" component={SignupView} />
-          {/* <Route exact path="/image-submit" component={ImageSubmitView} />
-          <Route exact path="/comment-writer" component={CommentWriter} />
-          <Route exact path="/image-card" component={ImageCard} />
-           */}
-        </div>
+          <Route path="/add-image" component={AddImageView} />
+          <Route path="/image-preview" component={ImagePreview} />
+          <Route path="/login" component={LoginView} />
+          <Route path="/signup" component={SignupView} />
+        </React.Fragment>
       </Router>
     );
   }

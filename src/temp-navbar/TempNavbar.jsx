@@ -13,13 +13,10 @@ export default class TempNavbar extends React.Component {
               <Link to="/">Home View</Link>
             </li>
             <li>
+              <Link to="/add-image">Add Image View</Link>
+            </li>
+            <li>
               <Link to="/image-preview">Image Preview View</Link>
-            </li>
-            <li>
-              <Link to="/comment-writer">Comment Writer View</Link>
-            </li>
-            <li>
-              <Link to="/comment">Comment View</Link>
             </li>
             <li>
               <Link to="/login">Login View</Link>

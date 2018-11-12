@@ -1,10 +1,10 @@
 import React from 'react';
 import Photo from './Photo.jsx';
-import CommentBubble from './CommentBubble.jsx';
-import Comment from './Comment.jsx';
-import CommentWriter from './CommentWriter.jsx';
+import CommentBubble from '../comment/CommentBubble.jsx';
+import Comment from '../comment/Comment.jsx';
+import CommentWriter from '../comment/CommentWriter.jsx';
 
-export default class ImagePreview extends React.Component {
+class ImagePreview extends React.Component {
   render() {
     return (
       <div className="img-preview">
@@ -16,3 +16,4 @@ export default class ImagePreview extends React.Component {
     );
   }
 }
+export default ImagePreview;

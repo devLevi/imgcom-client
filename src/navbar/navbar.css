@@ -56,19 +56,27 @@ button:focus {
   outline: 0;
 }
 
-.login {
+.login,
+.logout {
   background-color: #f03847;
   border: 1px solid #f03847;
   color: #fff;
   position: relative;
 }
 
-.logout:active,
-.signup:active {
-  color: #f03847ce;
+.fa-plus {
+  color: black;
+  font-size: 1.8em;
+  margin-right: 5px;
 }
 
-.login:active {
+.login:active,
+.logout:active {
   background-color: #f03847ce;
   border: 1px solid #f03847ce;
+}
+
+.signup:active,
+.fa-plus:active {
+  color: #f03847ce;
 }
