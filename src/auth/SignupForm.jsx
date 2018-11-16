@@ -10,6 +10,18 @@ export const SignupForm = props => (
           type="email"
           name="email"
           placeholder="Email"
+          component="input"
+        />
+      </label>
+    </div>
+    <div className="input-field-container">
+      <label>
+        <Field
+          className="field"
+          type="username"
+          name="username"
+          placeholder="Username"
+          component="input"
         />
       </label>
     </div>
@@ -20,6 +32,7 @@ export const SignupForm = props => (
           type="password"
           name="password"
           placeholder="Password"
+          component="input"
         />
       </label>
     </div>
@@ -29,7 +42,8 @@ export const SignupForm = props => (
           className="field"
           type="password"
           name="password"
-          placeholder="Confirm Password"
+          placeholder="Confirm password"
+          component="input"
         />
       </label>
       <button type="submit" className="signup-button" value="Create Account">

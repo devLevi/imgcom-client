@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import HomeView from './home/HomeView.jsx';
+import LandingView from './home/LandingView.jsx';
 import Navbar from './navbar/Navbar.jsx';
-import ImagePreview from './image-card/ImagePreview.jsx';
+import ImageDetailsView from './details/ImageDetailsView.jsx';
 import AddImageView from './add-image/AddImageView.jsx';
 import LoginView from './auth/LoginView.jsx';
 import SignupView from './auth/SignupView.jsx';
@@ -15,11 +15,11 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <Navbar />
-          <Route exact path="/" component={HomeView} />
-          <Route path="/add-image" component={AddImageView} />
-          <Route path="/image-preview" component={ImagePreview} />
+          <Route exact path="/" component={LandingView} />
           <Route path="/login" component={LoginView} />
           <Route path="/signup" component={SignupView} />
+          <Route path="/add-image" component={AddImageView} />
+          <Route path="/details/:noteId" component={ImageDetailsView} />
         </React.Fragment>
       </Router>
     );

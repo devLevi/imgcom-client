@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export class Navbar extends React.Component {
   logout() {

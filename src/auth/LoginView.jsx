@@ -1,15 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import './auth.css';
 import LoginForm from './LoginForm';
-import { connect } from 'react-redux';
 
 export class LoginView extends React.Component {
   login(values) {
     this.props.dispatch({
       type: 'LOGIN_SUCCESS',
       username: values.username,
-      jwt: 'ajsndiajsndjansdkjanskjdanskjdaksdn'
+      jwt: 'alskdjfkdlsalskdjfjdkslal'
     });
     alert('Login Succesful.');
     this.props.history.push('/');
