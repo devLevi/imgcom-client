@@ -18,7 +18,7 @@ export class LoginView extends React.Component {
   render() {
     return (
       <section className="login-page-screen" aria-live="assertive">
-        <h1 className="title">ImgCom</h1>
+        {/* <h1 className="title">ImgCom</h1> */}
         <LoginForm onSubmit={this.login.bind(this)} />
         <p className="link-to-signup">
           Don't have an account? <Link to="/signup">Sign up</Link>

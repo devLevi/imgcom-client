@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/login" component={LoginView} />
           <Route path="/signup" component={SignupView} />
           <Route path="/add-image" component={AddImageView} />
-          <Route path="/details/:noteId" component={ImageDetailsView} />
+          <Route path="/details/:imageId" component={ImageDetailsView} />
         </React.Fragment>
       </Router>
     );

@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export class CommentListView extends React.Component {
-  renderComment(comment) {
+  renderComment(comment, index) {
     return (
-      <div className="single-comment">
+      <div key={index} className="single-comment">
         <div className="comment-wrapper">
           <div className="username">{comment.username}</div>
-          <div className="comment">{comment.comment}</div>
+          <div className="comment">{comment.content}</div>
         </div>
       </div>
     );
@@ -20,7 +20,12 @@ export class CommentListView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  comments: state.imageList.comments
+  comments: state.image.imageDetails.comments
+  // comments: [
+  //   { id: 123, comment: 123, username: 'devLevi' },
+  //   { id: 456, comment: 456, username: 'sgarcia' },
+  //   { id: 789, comment: 789, username: 'vader-father' }
+  // ]
 });
 
 export default connect(mapStateToProps)(CommentListView);
