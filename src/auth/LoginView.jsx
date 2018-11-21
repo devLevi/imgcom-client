@@ -19,6 +19,13 @@ export class LoginView extends React.Component {
     return (
       <section className="login-page-screen" aria-live="assertive">
         {/* <h1 className="title">ImgCom</h1> */}
+        <Link to="/">
+          <img
+            className="imgcom-logo"
+            src="https://i.imgur.com/2DJKXL8.png)"
+            alt="imagecom logo"
+          />
+        </Link>
         <LoginForm onSubmit={this.login.bind(this)} />
         <p className="link-to-signup">
           Don't have an account? <Link to="/signup">Sign up</Link>

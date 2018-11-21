@@ -5,15 +5,24 @@ import './home.css';
 
 export const LandingView = props => {
   const defaultView = (
-    <div className="image-card">
-      <div className="image-wrapper">
+    <React.Fragment>
+      <div className="logo-image-wrapper">
         <img
-          className="home-page-image"
-          src="https://i.imgur.com/DtLvEey.jpg"
-          alt="home-page-img"
+          className="imgcom-logo"
+          src="https://i.imgur.com/2DJKXL8.png)"
+          alt="imagecom logo"
         />
       </div>
-    </div>
+      <div className="image-card">
+        <div className="image-wrapper">
+          <img
+            className="home-page-image"
+            src="https://i.imgur.com/DtLvEey.jpg"
+            alt="home-page-img"
+          />
+        </div>
+      </div>
+    </React.Fragment>
   );
 
   const authView = <ImageListView />;

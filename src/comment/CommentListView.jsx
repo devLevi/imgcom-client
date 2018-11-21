@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './comment.css';
 
 export class CommentListView extends React.Component {
   renderComment(comment, index) {
@@ -21,11 +22,6 @@ export class CommentListView extends React.Component {
 
 const mapStateToProps = state => ({
   comments: state.image.imageDetails.comments
-  // comments: [
-  //   { id: 123, comment: 123, username: 'devLevi' },
-  //   { id: 456, comment: 456, username: 'sgarcia' },
-  //   { id: 789, comment: 789, username: 'vader-father' }
-  // ]
 });
 
 export default connect(mapStateToProps)(CommentListView);

@@ -1,0 +1,58 @@
+.image-submit-form {
+  width: 100%;
+  text-align: center;
+}
+
+.dropzone {
+  width: 250px;
+  border: 0.5px dashed #f03847ce;
+  padding: 5px;
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+}
+
+.upload-image-button {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 250px;
+  height: 2em;
+  border-radius: 3px;
+  text-shadow: none;
+  border-width: 0.5px;
+  background-color: #f03847;
+  border: 1px solid #f03847;
+  color: #fff;
+  font-size: 16px;
+}
+
+.cancel-link {
+  display: block;
+}
+
+.image-name {
+  padding: 3px;
+  text-align: center;
+  display: inline-block;
+  width: 250px;
+  font-family: cursive;
+  font-size: 12px;
+}
+
+.imgcom-logo {
+  width: 150px;
+  left: 50%;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-bottom: 30px;
+  display: inline-block;
+  text-align: center;
+}
+
+.add-image-screen {
+  position: fixed;
+  width: 300px;
+  left: 50%;
+  margin-top: 40px;
+  margin-left: -150px;
+}

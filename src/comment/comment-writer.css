@@ -1,4 +1,5 @@
-.comment-form > input {
+#new-comment-form > input,
+.form-field {
   height: 3em;
   border-radius: 3px;
   text-shadow: none;
@@ -8,4 +9,8 @@
   width: 500px;
   left: 50%;
   margin-left: -250px;
+}
+
+.form-field {
+  margin-top: 5px;
 }

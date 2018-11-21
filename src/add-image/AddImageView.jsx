@@ -1,26 +1,31 @@
 import React from 'react';
 import './add-image-view.css';
+import { connect } from 'react-redux';
+import AddImageForm from './AddImageForm';
+import { Link } from 'react-router-dom';
 
-export default class AddImageView extends React.Component {
+export class AddImageView extends React.Component {
   render() {
     return (
-      <div className="add-image-container">
-        <h3>
-          Select an image to upload, or navigate to the links above to view some
-          pictures!
-        </h3>
-        <form className="upload-photo">
-          {/* <input
-            type="file"
-            name="file-upload"
-            value="file-upload"
-            id="file-upload"
-            accept="image/*"
-          /> */}
-          <label for="fileupload">Select Image</label>
-          <button type="submit">Upload</button>
-        </form>
-      </div>
+      <section className="add-image-screen">
+        <Link to="/">
+          <img
+            className="imgcom-logo"
+            src="https://i.imgur.com/2DJKXL8.png)"
+            alt="imagecom logo"
+          />
+        </Link>
+        <AddImageForm onSubmit={values => console.log(values)} />
+      </section>
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddImageView);

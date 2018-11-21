@@ -1,3 +1,5 @@
+import * as actions from './actions';
+
 const initialState = {
   imageList: [
     {
@@ -60,7 +62,8 @@ const initialState = {
       },
       {
         id: 789,
-        content: 'comment placeholder',
+        content:
+          'comment placeholdercomment placeholdercomment placeholdercomment placeholdercomment placeholdercomment placeholder',
         username: 'username placeholder'
       }
     ]
@@ -68,5 +71,11 @@ const initialState = {
 };
 
 export default function imageReducer(state = initialState, action) {
+  if (action.type === actions.ADD_COMMENT) {
+    return Object.assign({}, state, {
+      imageList: [...state.imageList, {}]
+    });
+  }
+
   return state;
 }

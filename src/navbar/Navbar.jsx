@@ -44,7 +44,9 @@ export class Navbar extends React.Component {
     return (
       <div className="nav-container">
         <nav className="navigation" role="navigation">
-          <h1 className="title">ImgCom</h1>
+          <Link to="/" className="home-link">
+            <h1 className="title">ImgCom</h1>
+          </Link>
           <ul className="navbar">
             {homeScreenLinks}
             {userLinks}

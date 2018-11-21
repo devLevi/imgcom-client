@@ -11,8 +11,8 @@
   left: 50%;
   overflow: hidden;
   margin-left: -250px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 4px;
 }
 
 .username {

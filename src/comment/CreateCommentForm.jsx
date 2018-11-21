@@ -9,6 +9,7 @@ export const CreateCommentForm = props => {
           name="comment"
           component="input"
           type="text"
+          character-limit="70"
           className="form-field"
           placeholder="Say something awesome!"
         />
