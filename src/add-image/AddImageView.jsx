@@ -3,8 +3,11 @@ import './add-image-view.css';
 import { connect } from 'react-redux';
 import AddImageForm from './AddImageForm';
 import { Link } from 'react-router-dom';
-
+import { createImage } from '../redux/actions/image-actions';
 export class AddImageView extends React.Component {
+  createImage(image) {
+    this.props.dispatch(createImage(image));
+  }
   render() {
     return (
       <section className="add-image-screen">
@@ -15,7 +18,11 @@ export class AddImageView extends React.Component {
             alt="imagecom logo"
           />
         </Link>
-        <AddImageForm onSubmit={values => console.log(values)} />
+        <AddImageForm
+          type="image"
+          onAdd={image => this.createImage(image)}
+          onSubmit={values => console.log(values)}
+        />
       </section>
     );
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import ImageInput from './ImageInput';
 import { Link } from 'react-router-dom';
-
 class AddImageForm extends React.Component {
   onFileAdd(files) {
     debugger;
@@ -16,7 +15,11 @@ class AddImageForm extends React.Component {
     return (
       <form className="image-submit-form" onSubmit={handleSubmit}>
         <Field name="picture" component={ImageInput} />
-        <button className="upload-image-button" type="submit">
+        <button
+          className="upload-image-button"
+          type="submit"
+          onSubmit={alert('Your image has been uploaded!')}
+        >
           Upload
         </button>
         <Link to="/" className="cancel-link">

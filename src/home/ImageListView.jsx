@@ -23,7 +23,7 @@ export class ImageListView extends React.Component {
   }
 
   render() {
-    const images = this.props.imageList.map(this.renderImage);
+    const images = this.props.imageLists.map(this.renderImage);
     return <main className="image-list">{images}</main>;
   }
 }
