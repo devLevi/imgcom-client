@@ -3,10 +3,21 @@ import { connect } from 'react-redux';
 import CommentListView from '../comment/CommentListView.jsx';
 import CreateComment from '../comment/CreateComment.jsx';
 
+import { getImage } from './image-actions';
+
 export class ImageDetailsView extends React.Component {
+  componentDidMount() {
+    this.props.getImage({
+      jwt: this.props.jwt,
+      imageId: this.props.match.params.imageId
+    });
+  }
+
   render() {
     const { image } = this.props;
-    const { imageId } = this.props.match.params;
+    if (!image) {
+      return <p>Warming up the time machine!</p>;
+    }
     return (
       <main className="img-preview">
         <div className="image-card">
@@ -14,15 +25,23 @@ export class ImageDetailsView extends React.Component {
             <img src={image.url} alt={image.url} />
           </div>
         </div>
-        <CommentListView imageId={imageId} />
-        <CreateComment />
+        {/* <CommentListView imageId={image.imageId} />
+        <CreateComment /> */}
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  jwt: state.auth.jwt,
   image: state.image.imageDetails
 });
 
-export default connect(mapStateToProps)(ImageDetailsView);
+const mapDispatchToProps = {
+  getImage
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ImageDetailsView);

@@ -3,7 +3,7 @@ import './add-image-view.css';
 import { connect } from 'react-redux';
 import AddImageForm from './AddImageForm';
 import { Link } from 'react-router-dom';
-import { createImage } from '../redux/actions/image-actions';
+import { createImage } from './image-actions';
 export class AddImageView extends React.Component {
   createImage(image) {
     this.props.dispatch(createImage(image));

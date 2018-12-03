@@ -31,7 +31,8 @@ export const LandingView = props => {
 };
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.auth.isLoggedIn
+  isLoggedIn: state.auth.isLoggedIn,
+  username: state.auth.username
 });
 
 export default connect(mapStateToProps)(LandingView);

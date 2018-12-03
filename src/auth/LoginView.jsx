@@ -4,21 +4,19 @@ import { Link } from 'react-router-dom';
 
 import './auth.css';
 import LoginForm from './LoginForm';
-
+import { logIn } from './auth-actions';
 export class LoginView extends React.Component {
   login(values) {
-    this.props.dispatch({
-      type: 'LOGIN_SUCCESS',
-      username: values.username,
-      jwt: 'alskdjfkdlsalskdjfjdkslal'
+    this.props.logIn(values).then(loginData => {
+      alert(
+        `Welcome ${loginData.user.username} you have succesfully logged in.`
+      );
+      this.props.history.push('/');
     });
-    alert('Login Succesful.');
-    this.props.history.push('/');
   }
   render() {
     return (
       <section className="login-page-screen" aria-live="assertive">
-        {/* <h1 className="title">ImgCom</h1> */}
         <Link to="/">
           <img
             className="imgcom-logo"
@@ -35,4 +33,13 @@ export class LoginView extends React.Component {
   }
 }
 
-export default connect()(LoginView);
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+  logIn
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginView);

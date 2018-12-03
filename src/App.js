@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LandingView from './home/LandingView.jsx';
 import Navbar from './navbar/Navbar.jsx';
-import ImageDetailsView from './details/ImageDetailsView.jsx';
-import AddImageView from './add-image/AddImageView.jsx';
+import ImageDetailsView from './images/ImageDetailsView.jsx';
+import AddImageView from './images/AddImageView.jsx';
 import LoginView from './auth/LoginView.jsx';
 import SignupView from './auth/SignupView.jsx';
 

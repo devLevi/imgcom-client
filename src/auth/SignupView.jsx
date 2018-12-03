@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './auth.css';
 import SignupForm from './SignupForm';
-
+import { signUp } from './auth-actions';
 export class SignupView extends React.Component {
   signup(formValues) {
-    alert(`User ${formValues.username} created. Redirecting you to login ...`);
-    this.props.history.push('/login');
+    this.props.signUp(formValues).then(createdUser => {
+      alert(`Congratulations ${createdUser.username}. Taking you home now...`);
+      this.props.history.push('/login');
+    });
   }
   render() {
     return (
@@ -27,4 +30,13 @@ export class SignupView extends React.Component {
   }
 }
 
-export default SignupView;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+  signUp
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignupView);

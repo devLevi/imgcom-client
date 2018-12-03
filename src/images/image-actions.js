@@ -1,3 +1,5 @@
+import { IMAGE_LIST, IMAGE_DETAILS } from './image-fake-data';
+
 const API = 'https://jsonplaceholder.typicode.com';
 
 export const GET_IMAGES = 'GET_IMAGES';
@@ -14,10 +16,9 @@ const getImagesFailureAction = error => ({
   type: GET_IMAGES_FAILURE,
   error
 });
-
-export const getImages = () => dispatch => {
+export const getImages = payload => dispatch => {
   dispatch(getImagesAction());
-  fetch(`${API}/users/1/photos`)
+  fetch(`${API}/photos`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -25,7 +26,8 @@ export const getImages = () => dispatch => {
       return res.json();
     })
     .then(images => {
-      dispatch(getImagesSuccessAction(images));
+      //TODO: Remove once server side is complete
+      dispatch(getImagesSuccessAction(IMAGE_LIST));
     })
     .catch(err => {
       dispatch(getImagesFailureAction(err));
@@ -47,9 +49,9 @@ const getImageFailureAction = error => ({
   error
 });
 
-export const getImage = imageId => dispatch => {
+export const getImage = payload => dispatch => {
   dispatch(getImageAction());
-  return fetch(`${API}/photos/${imageId}`)
+  return fetch(`${API}/photos/1`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -57,7 +59,8 @@ export const getImage = imageId => dispatch => {
       return res.json();
     })
     .then(image => {
-      dispatch(getImageSuccessAction(image));
+      //TODO: Reomve once server is complete
+      dispatch(getImageSuccessAction(IMAGE_DETAILS));
     })
     .catch(err => {
       console.error(err);
@@ -79,7 +82,8 @@ const createImageFailureAction = error => ({
   type: CREATE_IMAGE_FAILURE,
   error
 });
-export const createImage = image => dispatch => {
+export const createImage = payload => dispatch => {
+  const { image, jwt } = payload;
   dispatch(createImageAction(image));
   return fetch(`${API}/photos/`, {
     method: 'POST',
@@ -96,7 +100,7 @@ export const createImage = image => dispatch => {
     })
     .then(image => {
       dispatch(createImageSuccessAction());
-      dispatch(getImages());
+      return image;
     })
     .catch(err => {
       console.error(err);
@@ -110,8 +114,9 @@ const deleteImageAction = imageId => ({
   imageId
 });
 export const DELETE_IMAGE_SUCCESS = 'DELETE_IMAGE_SUCCESS';
-const deleteImageSuccessAction = () => ({
-  type: DELETE_IMAGE_SUCCESS
+const deleteImageSuccessAction = imageId => ({
+  type: DELETE_IMAGE_SUCCESS,
+  imageId
 });
 export const DELETE_IMAGE_FAILURE = 'DELETE_IMAGE_FAILURE';
 const deleteImageFailureAction = error => ({
@@ -119,7 +124,8 @@ const deleteImageFailureAction = error => ({
   error
 });
 
-export const deleteImage = imageId => dispatch => {
+export const deleteImage = payload => dispatch => {
+  const { imageId, jwt } = payload;
   dispatch(deleteImageAction());
   return fetch(`${API}/photos/${imageId}`, { method: 'DELETE' })
     .then(res => {

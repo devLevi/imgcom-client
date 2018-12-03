@@ -1,3 +1,5 @@
+import { IMAGE_LIST, IMAGE_DETAILS } from './image-fake-data';
+
 const API = 'https://jsonplaceholder.typicode.com';
 
 export const GET_COMMENTS = 'GET_COMMENTS';
@@ -14,10 +16,9 @@ const getCommentsFailureAction = error => ({
   type: GET_COMMENTS_FAILURE,
   error
 });
-
-export const getComments = () => dispatch => {
+export const getComments = payload => dispatch => {
   dispatch(getCommentsAction());
-  fetch(`${API}/users/1/comments`)
+  fetch(`${API}/comments`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -25,7 +26,8 @@ export const getComments = () => dispatch => {
       return res.json();
     })
     .then(images => {
-      dispatch(getCommentsSuccessAction(images));
+      //TODO: Remove once server side is complete
+      dispatch(getCommentsSuccessAction(IMAGE_LIST));
     })
     .catch(err => {
       dispatch(getCommentsFailureAction(err));
@@ -47,9 +49,9 @@ const getCommentFailureAction = error => ({
   error
 });
 
-export const getComment = commentId => dispatch => {
+export const getComment = payload => dispatch => {
   dispatch(getCommentAction());
-  return fetch(`${API}/comments/${commentId}`)
+  return fetch(`${API}/comments/1`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -57,7 +59,7 @@ export const getComment = commentId => dispatch => {
       return res.json();
     })
     .then(comment => {
-      dispatch(getCommentSuccessAction(comment));
+      dispatch(getCommentSuccessAction(IMAGE_DETAILS));
     })
     .catch(err => {
       console.error(err);
@@ -79,7 +81,8 @@ const createCommentFailureAction = error => ({
   type: CREATE_COMMENT_FAILURE,
   error
 });
-export const createComment = comment => dispatch => {
+export const createComment = payload => dispatch => {
+  const { comment, jwt } = payload;
   dispatch(createCommentAction(comment));
   return fetch(`${API}/comments/`, {
     method: 'POST',
@@ -94,9 +97,9 @@ export const createComment = comment => dispatch => {
       }
       return res.json();
     })
-    .then(image => {
+    .then(comment => {
       dispatch(createCommentSuccessAction());
-      dispatch(getComments());
+      return comment;
     })
     .catch(err => {
       console.error(err);
@@ -110,8 +113,9 @@ const deleteCommentAction = commentId => ({
   commentId
 });
 export const DELETE_COMMENT_SUCCESS = 'DELETE_COMMENT_SUCCESS';
-const deleteCommentSuccessAction = () => ({
-  type: DELETE_COMMENT_SUCCESS
+const deleteCommentSuccessAction = commentId => ({
+  type: DELETE_COMMENT_SUCCESS,
+  commentId
 });
 export const DELETE_COMMENT_FAILURE = 'DELETE_COMMENT_FAILURE';
 const deleteCommentFailureAction = error => ({
@@ -119,7 +123,8 @@ const deleteCommentFailureAction = error => ({
   error
 });
 
-export const deleteComment = commentId => dispatch => {
+export const deleteComment = payload => dispatch => {
+  const { commentId, jwt } = payload;
   dispatch(deleteCommentAction());
   return fetch(`${API}/comments/${commentId}`, { method: 'DELETE' })
     .then(res => {
@@ -127,7 +132,7 @@ export const deleteComment = commentId => dispatch => {
         return Promise.reject(res.statusText);
       }
       dispatch(deleteCommentSuccessAction());
-      dispatch(getComment());
+      dispatch(getComments());
     })
     .catch(err => {
       console.error(err);

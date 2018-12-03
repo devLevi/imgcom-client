@@ -7,9 +7,15 @@ import './comment-writer.css';
 
 export class CommentWriter extends React.Component {
   createComment(values) {
-    console.log(values);
-    alert('Comment created!');
-    this.props.dispatch(reset('createComment'));
+    this.props
+      .createComment({
+        comment: values,
+        jwt: this.props.jwt
+      })
+      .then(comment => {
+        alert('Comment created!');
+        this.props.dispatch(reset('createComment'));
+      });
   }
   render() {
     return (
@@ -20,4 +26,14 @@ export class CommentWriter extends React.Component {
   }
 }
 
-export default connect()(CommentWriter);
+const mapStateToProps = state => ({
+  jwt: state.auth.jwt
+});
+
+const mapDispatchToProps = {
+  CommentWriter
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommentWriter);

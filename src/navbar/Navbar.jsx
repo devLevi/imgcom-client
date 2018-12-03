@@ -1,15 +1,14 @@
 import React from 'react';
 import './navbar.css';
 import { connect } from 'react-redux';
-
-import { Link } from 'react-router-dom';
+import { logout } from '../auth/auth-actions';
+import { Link, withRouter } from 'react-router-dom';
 
 export class Navbar extends React.Component {
   logout() {
-    this.props.dispatch({
-      type: 'LOGOUT_SUCCESS'
-    });
-    alert('Logout Succesful.');
+    this.props.logout();
+    alert("You've been logged out. Catch ya on the flip side.");
+    this.props.history.push('/');
   }
   render() {
     const homeScreenLinks = !this.props.isLoggedIn ? (
@@ -31,11 +30,16 @@ export class Navbar extends React.Component {
       <React.Fragment>
         <li>
           <Link to="/">
-            <button className="nav-button logout">logout</button>
+            <button
+              onClick={this.logout.bind(this)}
+              className="nav-button logout"
+            >
+              logout
+            </button>
           </Link>
           <Link to="/add-image">
             <button className="nav-button add-image">
-              <i class="fas fa-plus" />
+              <i className="fas fa-plus" />
             </button>
           </Link>
         </li>
@@ -61,4 +65,11 @@ const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn
 });
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = {
+  logout
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Navbar));
