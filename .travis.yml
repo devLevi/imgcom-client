@@ -2,4 +2,11 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: EVwpjB7LU46qFBd7mOW0ES1kuhzWT/fT/6R4gDbpZYvHq7NN+XSRyTyoODsQO60AJa/FElQ2KP2DNLkVthOGjBHYPqTlF/YTrp3WSuteFUSGelsQc+3/5pSHY21vpqjS/Bx6ujCESHxZ+7Q/5xv3mUjhdyZPdKtUZ7hWRqkgfqIHi6p5LkKKUUh1py+Py/Naqp4bUzdfWwnzJ6h2AwlOotjSqzsK6JV3mgpohqTRc3qNAlHW3QAqZakDPF6MtsVGBSuErzYX755QGSSqsUUzjiGQsetmGwn9x7JHdmKKygYfwDh9xVRQIjQ7dY3CwSo4MB8da4j96ee8LwZJJhuUzJIIzfpFKIOw4KlD6z78egA5zpNkw0UEsumanEtodivvAohi7Drtyj3+BL18Ojj0+L+mNIBx7ZtdXUVhYEhEx/I2NHQyFyzCgRuct6SyPOJPHMXEdj9XRQODM5lcHGbkZoWN+ZbVXpw7JMoCw7Mhb2P1oToJg9YRgMlYeJuoDyaTK792RXhQ0v1CP4nhlC+6V4hEQZMg9KArttPuDYRDn6Oppl8lW2JcjliDlcDQLmVzFGQQZ/oOXztnk8+YtiyU8Rs14Opz1GsfQ1k9ogphpjRI+W62vbInbX0ABZIQlOSsWjnhb/Xj6nXg7QkQ3YobtKf0y2Lo8qTIblR3GT2+/9o=
+  app: murmuring-basin-76803
+  on:
+    repo: devLevi/imgcom-client
