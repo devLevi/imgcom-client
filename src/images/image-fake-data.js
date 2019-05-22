@@ -1,6 +1,6 @@
 export const IMAGE_LIST = [
   {
-    id: 1234,
+    id: 2345,
     url: 'https://picsum.photos/700/550',
     user: {
       username: 'devLevi',
@@ -26,7 +26,7 @@ export const IMAGE_LIST = [
     ]
   },
   {
-    id: 1234,
+    id: 5678,
     url: 'https://picsum.photos/700/560',
     user: {
       username: 'devLevi',

@@ -7,7 +7,7 @@ import { signUp } from './auth-actions';
 export class SignupView extends React.Component {
   signup(formValues) {
     this.props.signUp(formValues).then(createdUser => {
-      alert(`Congratulations ${createdUser.username}. Taking you home now...`);
+      // alert(`Congratulations ${createdUser.username}. Taking you home now...`);
       this.props.history.push('/login');
     });
   }

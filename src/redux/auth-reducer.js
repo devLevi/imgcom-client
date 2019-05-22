@@ -28,7 +28,7 @@ export default function reducer(state = initialState, action) {
     action.type === actions.LOGIN_FAILURE ||
     action.type === actions.SIGNUP_FAILURE
   ) {
-    return { ...state, error: action.error };
+    return { ...state, authenticating: false, error: action.error };
     //LOGIN AND SIGNUP REQUEST SUCCESS
   } else if (
     action.type === actions.LOGIN_SUCCESS ||

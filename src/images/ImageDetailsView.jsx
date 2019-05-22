@@ -16,7 +16,7 @@ export class ImageDetailsView extends React.Component {
   render() {
     const { image } = this.props;
     if (!image) {
-      return <p>Warming up the time machine!</p>;
+      return <p className="loading-message">Warming up the time machine!</p>;
     }
     return (
       <main className="img-preview">
@@ -25,8 +25,8 @@ export class ImageDetailsView extends React.Component {
             <img src={image.url} alt={image.url} />
           </div>
         </div>
-        {/* <CommentListView imageId={image.imageId} />
-        <CreateComment /> */}
+        <CommentListView comments={image.comments} />
+        <CreateComment />
       </main>
     );
   }

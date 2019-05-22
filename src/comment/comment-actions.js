@@ -1,4 +1,4 @@
-import { IMAGE_LIST, IMAGE_DETAILS } from './image-fake-data';
+import { IMAGE_LIST, IMAGE_DETAILS } from '../images/image-fake-data';
 
 const API = 'https://jsonplaceholder.typicode.com';
 

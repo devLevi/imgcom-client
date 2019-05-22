@@ -1,6 +1,9 @@
 import React from 'react';
 import './comment-writer.css';
+import AuthProtectedComponent from '../auth/auth-protected-component';
 import CreateCommentForm from './CreateCommentForm';
+
+import { createComment } from './comment-actions';
 import { reset } from 'redux-form';
 import { connect } from 'react-redux';
 import './comment-writer.css';
@@ -31,9 +34,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  CommentWriter
+  createComment
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CommentWriter);
+export default AuthProtectedComponent(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CommentWriter)
+);

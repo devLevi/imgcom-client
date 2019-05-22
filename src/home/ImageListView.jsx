@@ -26,28 +26,32 @@ export class ImageListView extends React.Component {
 
   renderImage(image) {
     return (
-      <React.Fragment>
-        <div className="image-card" data-image-id={image.id} key={image.id}>
-          <div className="image-wrapper">
-            <Link to={`details/${image.id}`}>
-              <img src={image.url} alt={image.url} />
-            </Link>
+      <div className="image-card-continer" key={image.id}>
+        <div className="image-card-block">
+          <div className="image-card" data-image-id={image.id}>
+            <div className="image-wrapper">
+              <Link to={`details/${image.id}`}>
+                <img src={image.url} alt={image.url} />
+              </Link>
+            </div>
+          </div>
+          <div className="delete-button">
+            <button
+              id="delete-image-button"
+              onClick={() => this.deleteImage(image.id)}
+            >
+              Delete
+            </button>
+            {/* <div className="comment-bubble"> */}
+            <div className="bubble-wrapper">
+              <Link to={`/details/${image.id}`}>
+                <i className="fas fa-comment" />
+              </Link>
+            </div>
+            {/* </div> */}
           </div>
         </div>
-        <button
-          id="delete-image-button"
-          onClick={() => this.deleteImage(image.id)}
-        >
-          Delete
-        </button>
-        <div className="comment-bubble">
-          <div className="bubble-wrapper">
-            <Link to={`/details/${image.id}`}>
-              <i className="fas fa-comment" />
-            </Link>
-          </div>
-        </div>
-      </React.Fragment>
+      </div>
     );
   }
 

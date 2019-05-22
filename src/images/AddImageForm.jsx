@@ -2,24 +2,27 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import ImageInput from './ImageInput';
 import { Link } from 'react-router-dom';
+import { validateImageFiles } from './validation';
+
 class AddImageForm extends React.Component {
-  onFileAdd(files) {
-    debugger;
-    this.setState({
-      files
-    });
+  handleFormSubmit(event) {
+    const photoFiles = Array.from(event.target.files);
+    const errors = validateImageFiles(photoFiles);
+    if (errors.length) {
+      return alert(`The following errors ocurred: /n/n${errors.join('\n')}`);
+    } else {
+      const newState = {};
+      newState[event.target.name] = photoFiles;
+      this.setState(newState);
+    }
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { onSubmit } = this.props;
     return (
-      <form className="image-submit-form" onSubmit={handleSubmit}>
+      <form className="image-submit-form" onSubmit={onSubmit}>
         <Field name="picture" component={ImageInput} />
-        <button
-          className="upload-image-button"
-          type="submit"
-          onSubmit={alert('Your image has been uploaded!')}
-        >
+        <button className="upload-image-button" type="submit">
           Upload
         </button>
         <Link to="/" className="cancel-link">

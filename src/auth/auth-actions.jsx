@@ -1,6 +1,4 @@
-import { FAKE_USER, FAKE_LOGIN_DATA } from './auth-fake-data';
-
-const API = 'https://jsonplaceholder.typicode.com';
+const API = 'http://localhost:8080';
 
 export const SET_AUTH_DATA = 'SET_AUTH_DATA';
 export const setAuthData = authData => ({
@@ -37,11 +35,12 @@ const signupFailureAction = error => ({
 
 export const signUp = user => dispatch => {
   dispatch(signupAction());
-  return fetch(`${API}/users`, {
+
+  return fetch(`${API}/api/users`, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8'
+      'Content-type': 'application/json'
     }
   })
     .then(res => {
@@ -51,9 +50,8 @@ export const signUp = user => dispatch => {
       return res.json();
     })
     .then(signUpData => {
-      //TODO: remove once server side is set up
-      dispatch(signupSuccessAction(FAKE_USER));
-      return FAKE_USER;
+      dispatch(signupSuccessAction(signUpData));
+      return signUpData;
     })
     .catch(err => {
       dispatch(signupFailureAction(err));
@@ -79,7 +77,7 @@ const loginFalureAction = error => ({
 
 export const logIn = user => dispatch => {
   dispatch(loginAction());
-  return fetch(`${API}/users`, {
+  return fetch(`${API}/api/auth/login`, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
@@ -93,9 +91,8 @@ export const logIn = user => dispatch => {
       return res.json();
     })
     .then(loginData => {
-      //TODO: remove once server side is set up
-      dispatch(loginSuccessAction(FAKE_LOGIN_DATA));
-      return FAKE_LOGIN_DATA;
+      dispatch(loginSuccessAction(loginData));
+      return loginData;
     })
     .catch(err => {
       dispatch(loginFalureAction(err));

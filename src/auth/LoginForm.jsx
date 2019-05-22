@@ -7,11 +7,11 @@ export const LoginForm = props => (
       <label>
         <Field
           className="field"
-          type="email"
-          name="email"
-          id="email"
+          type="text"
+          name="username"
+          id="username"
           component="input"
-          placeholder="Email"
+          placeholder="Username"
         />
       </label>
     </div>

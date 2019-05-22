@@ -1,6 +1,6 @@
 import { IMAGE_LIST, IMAGE_DETAILS } from './image-fake-data';
 
-const API = 'https://jsonplaceholder.typicode.com';
+const API = 'http://localhost:8080';
 
 export const GET_IMAGES = 'GET_IMAGES';
 const getImagesAction = () => ({

@@ -5,8 +5,11 @@ import AddImageForm from './AddImageForm';
 import { Link } from 'react-router-dom';
 import { createImage } from './image-actions';
 export class AddImageView extends React.Component {
-  createImage(image) {
-    this.props.dispatch(createImage(image));
+  createImage(values) {
+    // this.props.dispatch(createImage(image));
+    let formData = new FormData();
+    formData.append('userimage', values.picture[0]);
+    debugger;
   }
   render() {
     return (
@@ -20,8 +23,7 @@ export class AddImageView extends React.Component {
         </Link>
         <AddImageForm
           type="image"
-          onAdd={image => this.createImage(image)}
-          onSubmit={values => console.log(values)}
+          onSubmit={values => this.createImage(values)}
         />
       </section>
     );

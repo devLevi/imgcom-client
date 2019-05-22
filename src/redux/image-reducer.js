@@ -40,9 +40,9 @@ export default function imageReducer(state = initialState, action) {
   } else if (action.type === actions.GET_IMAGES_SUCCESS) {
     return { ...state, loading: false, imageList: action.images };
   } else if (action.type === actions.GET_IMAGE_SUCCESS) {
-    return { ...state, loading: false, imageList: action.image };
+    return { ...state, loading: false, imageDetails: action.image };
   } else if (action.type === actions.CREATE_IMAGE_SUCCESS) {
-    return { ...state, loading: false, imageList: action.image };
+    return { ...state, loading: false, imageDetails: action.image };
   } else if (action.type === actions.DELETE_IMAGE_SUCCESS) {
     return { ...state, loading: false };
   }
